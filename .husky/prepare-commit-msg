@@ -3,11 +3,11 @@
 
 echo '👷 Checking your commit message'
 
-# npx commitlint --edit $1 ||
-# (
-#     echo '🤢🤮🤢🤮 Your commit message looks disgusting. 🤢🤮🤢🤮';
-#     false;
-# )
+npx commitlint --edit $1 ||
+(
+    echo '🤢🤮🤢🤮 Your commit message looks disgusting. 🤢🤮🤢🤮';
+    false;
+)
 
 # If everything passes... Now we can commit
 echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
