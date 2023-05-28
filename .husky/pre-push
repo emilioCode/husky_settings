@@ -1,0 +1,22 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+function fail {
+    echo "$1"
+    exit "${2-1}" ## Return a code specified by $2, or 1 by default.
+}
+
+echo '👷 Building and testing your project before pushing'
+
+# Run build
+npm run build:production ||
+    fail '❌👷🔨❌ Your build failed. View the errors above to see why. ❌👷🔨❌';
+
+
+# Run unit test
+npm run test:converage ||
+	fail '🧪❌ Test are failing. You better fix the test before push. ❌🧪';
+
+
+# If everything passes... Now we can push
+echo '✅✅✅✅ You win this time... I am pushing your changes this now. ✅✅✅✅'
