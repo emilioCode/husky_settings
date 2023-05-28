@@ -1,0 +1,34 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '👷 Styling your project before committing'
+
+# Check Prettier standards
+npm run check:format ||
+(
+    echo '🤢🤮🤢🤮 Your styling looks disgusting. 🤢🤮🤢🤮
+            Prettier Check Failed. Run npm run format, add changes and try commit again.';
+    false;
+)
+
+echo '👷 Checking lint standards before committing'
+
+# Check ESLint Standards
+npm run lint ||
+(
+    echo '😤🏀👋😤 You better follow the standard! 😤🏀👋😤
+            ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+    false;
+)
+
+echo '👷 Checking types standards before committing'
+
+# Check tsconfig standards
+npm run check:types ||
+(
+    echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
+            Are you seriously trying to write that? Make the changes required above.'
+    false;
+)
+
+# This continues in prepare-commit-msg
