@@ -7,4 +7,5 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'husky_settings'
+  title2 = 'Example'
 }

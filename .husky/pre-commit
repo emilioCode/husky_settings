@@ -1,5 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
 echo '👷 Styling your project before committing'
 
@@ -32,3 +32,5 @@ npm run check:types ||
 )
 
 # This continues in prepare-commit-msg
+
+# npx husky add .husky/pre-commit 'npx commitlint --edit $1'
