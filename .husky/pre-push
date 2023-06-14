@@ -1,3 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
 #!/bin/sh
 # . "$(dirname "$0")/_/husky.sh" for win
 . "$(dirname -- "$0")/_/husky.sh"
@@ -21,3 +24,5 @@ npm run test:converage ||
 
 # If everything passes... Now we can push
 echo '✅✅✅✅ You win this time... I am pushing your changes this now. ✅✅✅✅'
+
+# npx husky add .husky/pre-push 'npx commitlint --edit $1'

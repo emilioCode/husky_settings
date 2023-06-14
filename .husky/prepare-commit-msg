@@ -1,5 +1,4 @@
-#!/bin/sh
-# . "$(dirname "$0")/_/husky.sh" for win
+#!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
 echo '👷 Checking your commit message'
@@ -12,3 +11,5 @@ npx commitlint --edit $1 ||
 
 # If everything passes... Now we can commit
 echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
+
+# npx husky add .husky/prepare-commit-msg 'npx commitlint --edit $1'
