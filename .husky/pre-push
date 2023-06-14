@@ -1,5 +1,6 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# . "$(dirname "$0")/_/husky.sh" for win
+. "$(dirname -- "$0")/_/husky.sh"
 
 function fail {
     echo "$1"
